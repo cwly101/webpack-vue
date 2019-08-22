@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <span>{{ msg }}</span>
+        <h3>Webpack study Demo</h3>
+        <p>说明：weback-dev-server 作为服务器运行时，打包好的js文件（如：main.bundle.js），会一式两份，dist目录下一份，内存中一份。在服务器运行过程中，对文件作出的任何更新，
+            内存中那份都会同步更新，但dist目录下那份只有在命令行中执行webapck时，才重新生成。如果网站的html文件中引用的文件是dist目录下那份，刷新也看不到效果。内存中那份，存在于项目根路径下，
+            结构目录下不可见，但可以访问。
+            html中引用地址：/main.bundle.js。 服务器url访问地址：http://localhost:8080/main.bundel.js。
+            打包好的js文件名称，取决于webpack.config.js文件中output.filename属性定义的名子。
+        </p>
+        <p>可修改main.js中日志输出内容，浏览器同步更新。用于验证内存中份是否生效。</p>
+        <p>--hot 表示热更新，其实字面意思不完全。就算没有--hot配置，对js作出修改后，内存中那份也会整个重新编译。--hot表示只编译修改的那部分，以打个补丁的方式，生成一个很小js文件。
+            这样可以减小编译的内容。</p>
+        <h3>构建webpack项目的步骤</h3>
+        <p>1. 新建项目目录文件夹，用vs code打开</p>
+        <p>2. 打开vs code的终端（Terminal），执行： npm init -y （y表示所有询问选项一路yes)</p>
+        <p>3. 在项目根目录下，新建文件夹，src和dist,在src中新建 main.js文件，在src中新建一个测试用的index.html。（生成默认的html标签快捷方式，按键！，选中回车）</p>
+        <p>4. 根目录下，新建 webpack.config.js 文件，配置webpack打包时的各种选项。见webpack.config.js文件内容</p>
+        <p>5. 在测试html文件引入打包好的js文件（内存中那份）</p>
+        <p>6. 终端下运行打包命令：webpack
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;说明：webpack会自动读取webpack.config.js文件中的配置信息
+        </p>
+        <p>7. 终端安装：cnpm install webpack-dev-server --save-dev
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>注：就算全局已经安装webapck,webpack-dev-server也要求在项目本地安装webpack</span>
+        </p>
+        <p>8. 在package.json中配置webpack-dev-server选项，在scripts在选项下，加入： "dev": "webpack-dev-server --open --port 5001
+            --content-base src --hot",</p>
+        <p>9. 终端命令：npm run dev （启动服务器）</p>
+        <h3>url-loader的使用</h3>
+        <p> webpack解析url,需要第三方的 url-loader模块，该模块又依赖 file-loader模块。请先安装。如样式背景：background: url('../img/3.png');</p>
+        <div class="bg"></div>
+        <p></p>
+        <div class="svg_div"></div>
+        <h5>JSON文件中不能写注释，即以.json后缀名结尾的文件，如：package.json 等文件，否则编译报错。</h5>
+    </div>
+</body>
+<script src="/main.bundle.js"></script>
+
+</html>

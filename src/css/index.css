@@ -1,0 +1,22 @@
+body {
+    background-color: aliceblue;
+    margin: 10px 40px;
+}
+p span {
+    color: cadetblue;
+    font-style: italic;
+}
+
+.bg {
+    width: 200px;
+    height: 260px;
+    border: 1px solid gray;
+    /* webpack解析url,需要第三方的 url-loader模块，该模块又依赖 file-loader模块。请先安装。 */
+    background: url('../img/3.png');
+}
+
+.svg_div {
+    background: url('../img/calendar.svg');
+    width: 32px;
+    height: 33px;
+}
