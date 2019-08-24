@@ -51,6 +51,7 @@
     <h3>ES2015中 export defalut 和 import ... from ... 使用</h3>
     <p>name: {{ person.name }} , age: {{ person.age }}</p>
     <p>StuNo: {{ stu.stuNo }}</p>
+    <p>Person实例对象中message的值：{{ p.message }}</p>
     <ul>
       <li v-for="item in list" :key="item.name">{{ item.name }} --- {{ item.price }}</li>
     </ul>
@@ -72,6 +73,7 @@ export default {
     return {
       msg: "webpack import vue,use vue-loader",
       person: test.Person,
+      p: test.p,
       stu: User,
       list: ProductList.products
     };

@@ -4,13 +4,13 @@ import './css/index.less'
 import Vue from 'vue'
 // import Vue from '../node_modules/vue/dist/vue.js'
 import VueRouter from 'vue-router'
-import app from './App.vue'
-import about from './views/About.vue'
 
-class Person {
-    static info = { name: 'js class', age: 30 }
-}
-console.log(Person.info)
+// class Person {
+//     static info = { name: 'js class', age: 30 }
+//     message = 'Person对象中的message属性值'
+// }
+// console.log(Person.info)
+// console.log(new Person().message)
 
 /**
  * vue-cli和vue-loader的区别：
@@ -19,19 +19,9 @@ console.log(Person.info)
  * 参见：https://vue-loader.vuejs.org/zh/guide/#vue-cli
  */
 Vue.use(VueRouter)
+import app from './App.vue'
+import router from './router.js'
 
-const router = new VueRouter({
-    routes: [
-        {
-            path: '/about',
-            component: about
-        },
-        {
-            path: '/home',
-            component: () => import('./views/Home.vue')
-        }
-    ]
-})
 
 new Vue({
     router,  // VueRouter的实例对象得扩展到vue才能使用

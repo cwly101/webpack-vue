@@ -1,9 +1,18 @@
+class Person {
+    static info = { name: 'js class', age: 30 }
+    message = '--- Person对象中的message属性值 ---'
+}
+// console.log(Person.info)
+// console.log(new Person().message)
+const p1 = new Person()
+
 // ES2015(ES6)中向外暴露对象的方式。 要引用对外暴露的对象，使用： import 随意起的名称 from '对象所在文件'  详见main.js中对于模块对象的引用
 export default {
     Person: {
         name: 'monic', 
         age: 5
-    }
+    },
+    p: p1
 }
 
 export class User {
